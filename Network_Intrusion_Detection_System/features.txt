@@ -1,0 +1,89 @@
+all features
+-----------------
+[
+'Received Packets' 
+'Received Bytes' 
+'Sent Bytes' 
+'Sent Packets'
+'Port alive Duration (S)' 
+'Packets Rx Dropped' 
+'Packets Tx Dropped'
+'Packets Rx Errors' 
+'Packets Tx Errors' 
+'Connection Point'
+'Total Load/Rate' 
+'Total Load/Latest' 
+'Unknown Load/Rate'
+'Unknown Load/Latest' 
+'Latest bytes counter' 
+'Table ID'
+'Active Flow Entries' 
+'Packets Looked Up' 
+'Packets Matched' 
+'Max Size'
+]
+
+The score of logistic regression is  [0 0 0 ... 1 1 0]
+The KNN classification score is  0.9777387229056825
+The Decision tree score is  1.0
+
+10 Features
+--------------------
+[
+'Received Packets' 
+'Received Bytes' 
+'Sent Bytes' 
+'Sent Packets'
+'Port alive Duration (S)' 
+'Total Load/Latest' 
+'Unknown Load/Latest'
+'Active Flow Entries' 
+'Packets Looked Up' 
+'Packets Matched'
+]
+
+The score of logistic regression is  [1 0 0 ... 0 0 0]
+The KNN classification score is  0.9750292911540714
+The Decision tree score is  1.0
+
+7 Features
+---------------
+[
+'Received Packets' 
+'Received Bytes' 
+'Sent Bytes' 
+'Sent Packets'
+'Port alive Duration (S)' 
+'Packets Looked Up' 
+'Packets Matched'
+]
+
+The score of logistic regression is  [0 0 0 ... 0 0 1]
+The KNN classification score is  0.982352079671939
+The Decision tree score is  1.0
+
+5 Features
+---------------
+[
+'Received Packets' 
+'Sent Bytes' 
+'Sent Packets' 
+'Packets Looked Up'
+'Packets Matched'
+]
+
+The score of logistic regression is  [0 0 0 ... 0 0 0]
+The KNN classification score is  0.9982425307557118
+The Decision tree score is  1.0
+
+3 Features
+--------------
+[
+'Sent Packets' 
+'Packets Looked Up' 
+'Packets Matched'
+]
+
+The score of logistic regression is  [0 0 0 ... 0 0 0]
+The KNN classification score is  1.0
+The Decision tree score is  1.0

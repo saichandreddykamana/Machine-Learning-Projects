@@ -1,0 +1,1 @@
+Port Scan attack is a common and dangerous attack that hackers used to know the vunlerable open ports. This attack helps the hackers to idetify the security mechanism of the network along with the firewall and anti-viruses.

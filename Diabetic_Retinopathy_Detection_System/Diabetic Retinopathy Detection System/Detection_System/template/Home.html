@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <title>Diabetic Retinopathy Detection System</title>
+    <link href="{% static 'CSS/home.css' %}" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bakbak+One&family=Barlow+Condensed&family=Bebas+Neue&family=Caveat:wght@600&family=Fredericka+the+Great&family=Heebo&family=Mulish&family=Oswald&family=Patua+One&family=Righteous&family=Roboto+Slab:wght@300;400;500&family=Satisfy&family=Shadows+Into+Light&family=Supermercado+One&family=Yanone+Kaffeesatz:wght@500&family=Zilla+Slab+Highlight:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  </head>
+  <body>
+        <nav class="navbar navbar-dark bg-primary">
+         <ul class="navbar-nav" style="display:contents; width: 100%">
+           <li class="nav-item" style="padding: 10px 20px;" >
+            <a class="navbar-brand" href="/">DRDS</a>
+           </li>
+           <li class="nav-item" style="padding: 5px 70px 5px 10px;">
+            <a class="nav-link" href="/" style="color: white;font-weight:bold;">HOME </a>
+           </li>
+         </ul>
+       </nav>
+      <div class="container">
+        <div class="row">
+          <div class="page_description">
+            <center>
+              <img src="https://www.themedicaleyecenter.com/wp-content/uploads/diabetic-retina-diagram.jpg" class="img_dr"/>
+            </center>
+            <p>
+              <b>Diabetic retinopathy</b>, also known as <b>diabetic eye disease (DED)</b>, is a medical condition in which damage occurs to the retina due to diabetes mellitus.
+              It is a leading cause of blindness in developed countries.
+            </p>
+            <p>
+              The two types are nonproliferative and proliferative.
+              Nonproliferative refers to early stages of the disease, while proliferative is an advanced form of the disease.
+            </p>
+            <p>
+              <b>Stage 1:</b> Mild nonproliferative diabetic retinopathy
+            </p>
+            <p>
+              <b>Stage 2:</b> Moderate nonproliferative diabetic retinopathy
+            </p>
+            <p>
+              <b>Stage 3:</b> Severe nonproliferative diabetic retinopathy
+            </p>
+            <p>
+              <b>Stage 4:</b> Proliferative diabetic retinopathy
+            </p>
+          </div>
+          <div class="form_container">
+            <h3> UPLOAD DIABETIC RETINOPATHY RETINAL IMAGE </h3>
+              <!--Simple Form-->
+            <center>
+              <img id="image_preview" src="" width="100px" height="100px" style="display:none"/>
+              <form action="upload" method="post" enctype="multipart/form-data" style="padding:5px 80px">
+              {% csrf_token %}
+                <input type="file" name="upload" accept=".png" style="align-self: center;" onchange="preview()">
+                <br>
+                <button class="btn btn-dark my-4" type="submit">Submit</button>
+            </form>
+              {% if result is not None %}
+                   {% if result == 'Normal' %}
+                     <div class="result-container" style="background: green">
+                       {{result}}
+                     </div>
+                   {% endif %}
+                   {% if result != 'Normal' %}
+                     <div class="result-container" style="background: red">
+                       {{result}}
+                     </div>
+                   {% endif %}
+              {% endif %}
+            </center>
+          </div>
+        </div>
+
+      </div>
+  </body>
+<style>
+
+  body{
+    font-family: 'Roboto Slab';
+  }
+
+  .page_description{
+    width: 60%;
+    text-align: justify;
+  }
+
+  .form_container{
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+  }
+
+  .img_dr{
+    width: 300px;
+    height: 250px;
+  }
+
+  form{
+    display: flex;
+  }
+
+  .container{
+    padding: 2%;
+    margin: 0%;
+  }
+
+  h3{
+     text-align: center;
+  }
+
+  .result-container{
+     color: white;
+     width: 40%;
+     padding: 10px 20px;
+  }
+
+</style>
+<script>
+  function preview() {
+    var frame = document.getElementById('image_preview');
+    frame.style.display = 'block';
+    frame.src=URL.createObjectURL(event.target.files[0]);
+  }
+</script>
+</html>
